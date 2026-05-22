@@ -1,0 +1,221 @@
+.educationSection {
+  padding: 6rem 0;
+  background: var(--background);
+  position: relative;
+}
+
+.educationSection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(2, 132, 199, 0.65) 0%, rgba(236, 72, 153, 0.45) 100%);
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--muted-foreground);
+  max-width: 500px;
+  margin: 2rem auto 0;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(2, 132, 199, 0.6) 0%, rgba(236, 72, 153, 0.3) 50%, transparent 100%);
+}
+
+.timelineItem {
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.timelineItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.timelineItem:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timelineMarker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border: 3px solid var(--background);
+  border-radius: 50%;
+  top: 1rem;
+  box-shadow: 0 0 20px rgba(2, 132, 199, 0.18);
+  transition: all 0.3s ease;
+}
+
+.timelineItem:hover .timelineMarker {
+  width: 24px;
+  height: 24px;
+  top: 0.75rem;
+  box-shadow: 0 0 30px rgba(2, 132, 199, 0.25);
+  background: var(--primary);
+  border-color: rgba(2, 132, 199, 0.35);
+}
+
+.timelineContent {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-left: calc(50% + 2rem);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timelineItem:hover .timelineContent {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.timelineContent::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 2rem;
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.school {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.year {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.degree {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.field {
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+  margin: 0.25rem 0 0.75rem 0;
+  font-weight: 500;
+}
+
+.description {
+  color: var(--muted-foreground);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .educationSection {
+    padding: 4rem 0;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timelineMarker {
+    left: 10px;
+  }
+
+  .timelineContent {
+    margin-left: 2rem;
+    margin-right: 0;
+    padding: 1.5rem;
+  }
+
+  .timelineContent::before {
+    left: -18px;
+  }
+
+  .timelineHeader {
+    flex-direction: column;
+  }
+
+  .year {
+    width: 100%;
+  }
+}

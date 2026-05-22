@@ -1,0 +1,47 @@
+.toggleButton {
+  background: var(--card);
+  border: 2px solid var(--border);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  line-height: 1;
+  min-width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toggleButton:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.toggleButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.2);
+}
+
+.icon {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.toggleButton:hover .icon {
+  transform: rotate(20deg) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .toggleButton {
+    padding: 6px 10px;
+    min-width: 36px;
+    height: 36px;
+  }
+}
