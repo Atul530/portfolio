@@ -42,7 +42,7 @@ export default function HomeSection() {
               </div>
 
               <div className={styles.socialLinks}>
-                <a href="https://github.com/Atul2330" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <a href="https://github.com/Atul530" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                   <FiGithub size={24} />
                 </a>
                 <a href="https://linkedin.com/in/atulsingh5" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>

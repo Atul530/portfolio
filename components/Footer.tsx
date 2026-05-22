@@ -31,7 +31,7 @@ export default function Footer() {
 
           <Col lg={4} md={12} xs={12}>
             <div className={styles.socialLinks}>
-              <a href="https://github.com/Atul2330" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+              <a href="https://github.com/Atul530" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                 <FiGithub size={20} />
               </a>
               <a href="https://linkedin.com/in/atulsingh5" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
