@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, type ChangeEvent, type FormEvent } from 'react'
-import { Container, Row, Col, Form, Spinner } from 'react-bootstrap'
+import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
 import emailjs from '@emailjs/browser'
 import styles from './ContactSection.module.css'
@@ -28,7 +28,7 @@ export default function ContactSection() {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target
+    const { name, value } = e.currentTarget
 
     setFormData(prev => ({
       ...prev,
@@ -121,9 +121,11 @@ export default function ContactSection() {
                   <a
                     href="tel:+919476133481"
                     className={styles.infoLink}
+                    aria-label="Call +91 9476133481"
                   >
                     +91 9476133481
                   </a>
+
                 </div>
               </div>
 
@@ -148,12 +150,13 @@ export default function ContactSection() {
               onSubmit={handleSubmit}
               className={styles.contactForm}
             >
-              <Form.Group className="mb-4">
-                <Form.Label className={styles.formLabel}>
+              <div className="mb-4">
+                <label htmlFor="name" className={styles.formLabel}>
                   Name
-                </Form.Label>
+                </label>
 
-                <Form.Control
+                <input
+                  id="name"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -161,15 +164,17 @@ export default function ContactSection() {
                   placeholder="Your Name"
                   className={styles.formInput}
                   required
+                  autoComplete="name"
                 />
-              </Form.Group>
+              </div>
 
-              <Form.Group className="mb-4">
-                <Form.Label className={styles.formLabel}>
+              <div className="mb-4">
+                <label htmlFor="email" className={styles.formLabel}>
                   Email
-                </Form.Label>
+                </label>
 
-                <Form.Control
+                <input
+                  id="email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -177,16 +182,17 @@ export default function ContactSection() {
                   placeholder="your@email.com"
                   className={styles.formInput}
                   required
+                  autoComplete="email"
                 />
-              </Form.Group>
+              </div>
 
-              <Form.Group className="mb-4">
-                <Form.Label className={styles.formLabel}>
+              <div className="mb-4">
+                <label htmlFor="message" className={styles.formLabel}>
                   Message
-                </Form.Label>
+                </label>
 
-                <Form.Control
-                  as="textarea"
+                <textarea
+                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -195,7 +201,7 @@ export default function ContactSection() {
                   className={styles.formInput}
                   required
                 />
-              </Form.Group>
+              </div>
 
               {submitStatus === 'success' && (
                 <div className={styles.successMessage}>
